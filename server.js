@@ -17,6 +17,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 app.use(express.urlencoded({ extended: true }));
 
+// seed
 app.get('/seed', (req,res) => {
     product.deleteMany({}, (error, allProducts) => {});
     product.create(productSeed, (error,data) => {
@@ -36,7 +37,9 @@ app.get('/products', (req,res) => {
 });
 
 // N
-
+app.get("/products/new", (req,res) => {
+    res.render('new.ejs');
+});
 
 
 // D
@@ -48,7 +51,11 @@ app.get('/products', (req,res) => {
 
 
 // C
-
+app.post('/products', (req,res) => {
+    product.create(req.body, (error,createdProduct) => {
+        res.redirect('/products');
+    });
+})
 
 
 // E
@@ -56,7 +63,13 @@ app.get('/products', (req,res) => {
 
 
 // S
-
+app.get('/product/:id', (req,res) => {
+    product.findById(req.params.id, (err, foundProduct) => {
+        res.render('show.ejs', {
+            product: foundProduct,
+        });
+    });
+});
 
 
 const PORT = process.env.PORT;

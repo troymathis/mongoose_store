@@ -8,9 +8,10 @@
 </head>
 <body>
     <h1>Mongoose Store</h1>
+    <h2><a href="/products/new">Create a New Product!</a></h2>
     <ul>
         <% products.forEach(product => { %>
-            <li><%=product.name%><br />
+            <li><a href="/product/<%= product._id %>"><%=product.name%></a><br />
                 <img src="<%= product.img %>"/><br />
                 Cost: <%= product.price %><br />
                 <%= product.qty %> in stock!
