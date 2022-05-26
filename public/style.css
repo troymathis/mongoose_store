@@ -1,0 +1,53 @@
+body {
+    color: white;
+    background-color: black;
+    font-family: 'Odibee Sans', cursive;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    border: solid salmon;
+    border-radius: 5%;
+    padding: 10px;
+    margin-right: 10%;
+    background-color: #593d47;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    opacity: 50%;
+    
+}
+
+#create {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+}
+
+ul {
+    border: 5px solid white;
+    min-height: 800px;
+    padding: 20px;
+    background-image: radial-gradient(salmon, #593d47);
+}
+
+input {
+    font-family: 'Odibee Sans', cursive;
+    padding: 20px;
+    font-size: larger;
+    background-color: black;
+    color: white;
+}

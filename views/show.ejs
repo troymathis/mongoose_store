@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styleshow.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap"
+      rel="stylesheet"/>
     <title><%= product.name %></title>
 </head>
 <body>
@@ -12,5 +18,6 @@
     <h2><%= product.description %></h2>
     <p>Price: $<%= product.price %></p>
     <p>Quantity: <%= product.qty %></p>
+    <a href="/products">Back To Shop</a>
 </body>
 </html>

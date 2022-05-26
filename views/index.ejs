@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
-</head>
-<body>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap"
+      rel="stylesheet"/>
+  </head>
+  <body>
     <h1>Mongoose Store</h1>
-    <h2><a href="/products/new">Create a New Product!</a></h2>
+    <h2 id="create"><a href="/products/new">Create a New Product!</a></h2>
     <ul>
-        <% products.forEach(product => { %>
-            <li><a href="/product/<%= product._id %>"><%=product.name%></a><br />
-                <img src="<%= product.img %>"/><br />
-                Cost: <%= product.price %><br />
-                <%= product.qty %> in stock!
-            </li>
-        <% }); %>
+      <% products.forEach(product => { %>
+      <li>
+        <a href="/products/<%= product._id %>"
+          ><%=product.name%><br />
+          <img src="<%= product.img %>" /><br
+        /></a>
+        Cost: <%= product.price %><br />
+        <%= product.qty %> in stock!<br />
+        <a href="/products/<%=product._id%>/edit"
+          ><input type="submit" value="Edit"
+        /></a>
+        
+        <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+          <a href="/products/"><input type="submit" value="Delete" /></a>
+        </form>
+        <form action="/products/<%= product.id %>?_method=PUT" method="POST">
+            <a href="/products/"><input type='submit' value='Buy' /></a>
+        </form>
+      </li>
+      <% }); %>
     </ul>
-</body>
+  </body>
 </html>
